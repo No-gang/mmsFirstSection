@@ -1,0 +1,118 @@
+.first-section {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../image/luca-bravo-9l_326FISzk-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.first-section-cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.first-section .first-section-desc {
+    position: relative;
+    font-size: 64px;
+    margin: 5px 0;
+}
+.first-section .first-section-desc:nth-child(2) {
+    font-size: 36px;
+    color: #7E0F12;
+}
+
+/* rolling */
+.rolling_box {
+    width: 100%;
+    height: 64px;
+    text-align: center;
+}
+
+.rolling_box ul {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.rolling_box ul li {
+    width: 100%;
+    height: 100%;
+    font-size: 64px;
+    line-height: 1;
+    position: absolute;
+    transition: top .75s;
+    top: 100%;
+    z-index: 1;
+}
+
+.card_sliding {
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+.card_sliding_after {
+    top: -100% !important;
+    z-index: 10 !important;
+    display: none;
+}
+
+.before_slide {
+    transform: translateY(100%);
+}
+
+.after_slide {
+    transform: translateY(0);
+}
+
+/* ball */
+.ball {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    opacity: 1;
+    animation-name: dropBall;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes dropBall {
+    from {
+        transform: translateY(-100px);
+    }to {
+        transform: translateY(10px);
+    }
+}
+
+/* 미디어쿼리 */
+@media (max-width : 1024px) {
+    .first-section .first-section-desc,
+    .rolling_box ul li {
+        font-size: 6.5vw;
+        font-weight: bold;
+    }   
+    .first-section .first-section-desc:nth-child(2) {
+        font-size: 4vw;
+        font-weight: bold;
+    }
+}
+
+/* 드래그 스타일 */
+.first-section .first-section-desc::selection,
+#rolling_box > li::selection {
+    background-color: orange;
+    color: white;
+}
